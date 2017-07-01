@@ -6,9 +6,8 @@ setInterval(clearFeed, 300);
 function clearFeed()
 {
 	try{ //try - because I don't want wait for DOM ready
-		if(!feedStream){ //saving some performance with saving reference to feed which is persistent until page reaload
-			feedStream = document.body.querySelector("[id^='feed_stream']");
-		}
+		feedStream = document.body.querySelector("[id^='feed_stream']");
+		
 		elements = feedStream.querySelectorAll('span>span[class]');
 	    for (var i = elements.length-1; i >= 0; i--){
 	        if(filter.localeCompare(elements[i].innerText)===0){ //fastest way to compare strings?
